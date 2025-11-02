@@ -122,8 +122,8 @@ function processCheckout(){
   // show card & upload area
   const cardArea = document.getElementById('card-area');
   cardArea.innerHTML = `<div style="padding:12px;border-radius:8px;background:linear-gradient(90deg, rgba(255,255,255,0.02), transparent)">
-    <div style="font-weight:700;margin-bottom:8px">شماره کارت برای انتقال (نمونه)</div>
-    <div style="display:flex;gap:8px;align-items:center"><div id="sample-card" style="font-family:monospace;background:rgba(0,0,0,0.35);padding:10px;border-radius:8px">${'6037-9911-2222-3333'}</div><button class="btn" id="copy-card">کپی شماره کارت</button></div>
+    <div style="font-weight:700;margin-bottom:8px">شماره کارت برای انتقال (داورزنی)</div>
+    <div style="display:flex;gap:8px;align-items:center"><div id="sample-card" style="font-family:monospace;background:rgba(0,0,0,0.35);padding:10px;border-radius:8px">${'6037-6975-9648-2296'}</div><button class="btn" id="copy-card">کپی شماره کارت</button></div>
     <div style="margin-top:10px">پس از انتقال، تصویر رسید را آپلود کنید:</div>
     <input type="file" id="receipt-file" accept="image/*" style="margin-top:8px" />
     <div style="margin-top:8px"><button class="btn neon" id="confirm-payment">تایید پرداخت و ارسال</button></div>

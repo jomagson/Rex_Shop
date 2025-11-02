@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>RexShop — فروشگاه گیمینگ نئونی</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="logo"><span class="dot"></span>RexShop</div>
+      <nav>
+        <a href="products.html" class="btn">محصولات</a>
+        <a href="cart.html" class="btn neon">سبد خرید (<span id="cart-count">0</span>)</a>
+        <button class="btn" id="open-admin" onclick="location.href='admin.html'">پنل مدیر</button>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <div class="hero-card">
+        <h1 class="hero-title">RexShop — فروشگاه گیمینگ نئونی</h1>
+        <p class="hero-sub">دسته‌بندی‌های اختصاصی: Minecraft، Discord، Telegram، VPN و بیشتر.</p>
+        <div style="display:flex;gap:12px;align-items:center">
+          <div class="gradient-anim">
+            <a class="cta btn neon" href="products.html">شروع خرید</a>
+          </div>
+        </div>
+
+        <div class="categories" id="categories"></div>
+      </div>
+
+      <aside class="hero-card">
+        <div style="text-align:center">
+          <h3>ویترین محصولات منتخب</h3>
+          <p style="color:#94a3b8">انتخاب تیم Rex — همیشه آماده</p>
+        </div>
+        <div id="featured" style="margin-top:12px"></div>
+      </aside>
+    </section>
+
+    <section id="products">
+      <h2>محصولات</h2>
+      <div class="grid" id="products-grid"></div>
+    </section>
+
+    <div class="footer-note">© 2025 RexShop</div>
+  </div>
+
+  <div class="toast" id="toast"><div class="dot"></div><div id="toast-text">به سبد اضافه شد</div></div>
+
+  <script src="script.js"></script>
+</body>
+</html>

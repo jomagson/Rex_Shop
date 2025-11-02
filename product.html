@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><title>RexShop - جزئیات محصول</title><link rel="stylesheet" href="style.css"></head>
+<body>
+  <div class="container">
+    <header><div class="logo"><span class="dot"></span>RexShop</div><nav><a href="index.html" class="btn">خانه</a><a href="products.html" class="btn">محصولات</a><a href="cart.html" class="btn neon">سبد خرید (<span id="cart-count">0</span>)</a></nav></header>
+    <main style="padding-top:18px">
+      <div id="product-details" class="hero-card"></div>
+    </main>
+    <div class="footer-note">© 2025 RexShop</div>
+  </div>
+  <div class="toast" id="toast"><div class="dot"></div><div id="toast-text">به سبد اضافه شد</div></div>
+  <script src="script.js"></script>
+  <script>
+    function getQueryParam(name){ const url = new URL(location.href); return url.searchParams.get(name); }
+    document.addEventListener('DOMContentLoaded', ()=>{
+      const id = getQueryParam('id'); products = JSON.parse(localStorage.getItem('rex_products')||'[]'); const p = products.find(x=>x.id===id);
+      const wrap = document.getElementById('product-details');
+      if(!p){ wrap.innerHTML = '<p style="color:#94a3b8">محصول پیدا نشد</p>'; return; }
+      wrap.innerHTML = `<div style="display:flex;gap:18px;flex-wrap:wrap"><div style="flex:1;min-width:220px"><div class="p-img" style="height:200px">${p.img?'<img src="'+p.img+'" style="max-width:100%;max-height:100%">':'<div style="padding:40px">بدون تصویر</div>'}</div></div><div style="flex:2"><h2>${p.title}</h2><div style="color:#9aa8c8;margin-bottom:8px">${p.category}</div><div style="font-family:monospace;color:var(--neon);font-size:20px">${(p.price||0).toLocaleString('fa-IR')} تـ</div><p style="color:#cbd5e1">${p.desc||''}</p><div style="margin-top:12px"><button class="add" onclick='addToCart("${p.id}")'>افزودن به سبد</button></div></div></div>`;
+    });
+  </script>
+</body>
+</html>

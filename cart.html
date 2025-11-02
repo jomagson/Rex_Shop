@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><title>RexShop - سبد خرید</title><link rel="stylesheet" href="style.css"></head>
+<body>
+  <div class="container">
+    <header><div class="logo"><span class="dot"></span>RexShop</div><nav><a href="index.html" class="btn">خانه</a><a href="products.html" class="btn">محصولات</a></nav></header>
+    <main style="padding-top:18px">
+      <h2>سبد خرید</h2>
+      <div id="cart-contents" class="hero-card"></div>
+
+      <div style="margin-top:16px">
+        <h3>اطلاعات پرداخت</h3>
+        <form id="checkout-form" class="hero-card" style="display:flex;flex-direction:column;gap:8px;max-width:520px">
+          <input id="c-first" placeholder="نام" required>
+          <input id="c-last" placeholder="نام خانوادگی" required>
+          <input id="c-phone" placeholder="شماره تلفن" required>
+          <input id="c-email" placeholder="ایمیل" required>
+          <input id="c-age" placeholder="سن" type="number" required>
+          <textarea id="c-note" placeholder="توضیحات اضافی"></textarea>
+          <div style="display:flex;gap:8px">
+            <button class="btn neon" type="button" id="checkout-btn">ثبت و نمایش شماره کارت</button>
+            <button class="btn" type="button" id="clear-cart">خالی کردن سبد</button>
+          </div>
+        </form>
+
+        <div id="card-area" style="margin-top:12px"></div>
+      </div>
+    </main>
+    <div class="footer-note">© 2025 RexShop</div>
+  </div>
+  <div class="toast" id="toast"><div class="dot"></div><div id="toast-text">عملیات انجام شد</div></div>
+  <script src="script.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', ()=>{ buildCartTable('cart-contents'); });
+    document.getElementById('clear-cart').addEventListener('click', ()=>{ if(confirm('آیا سبد خالی شود؟')){ localStorage.setItem('rex_cart','[]'); buildCartTable('cart-contents'); updateCartCount(); showToast('سبد خالی شد'); } })
+    document.getElementById('checkout-btn').addEventListener('click', ()=>{ processCheckout(); });
+  </script>
+</body>
+</html>

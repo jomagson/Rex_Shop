@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><title>RexShop - پنل مدیریت</title><link rel="stylesheet" href="style.css"></head>
+<body>
+  <div class="container">
+    <header><div class="logo"><span class="dot"></span>RexShop - Admin</div><nav><a href="index.html" class="btn">نمای سایت</a></nav></header>
+    <main style="padding-top:18px">
+      <h2>پنل مدیریت (رمز: RexUP_Admin124578)</h2>
+      <div id="login-area" class="hero-card">
+        <p>برای ورود رمز را وارد کنید.</p>
+        <div style="display:flex;gap:8px"><input id="admin-pass" placeholder="رمز مدیر" type="password"><button class="btn" id="admin-login">ورود</button></div>
+      </div>
+
+      <div id="admin-area" style="display:none">
+        <div style="display:flex;gap:12px;flex-wrap:wrap">
+          <div style="flex:1;min-width:320px">
+            <h3>محصولات</h3>
+            <form id="product-form" class="hero-card">
+              <div class="row"><input id="p-title" placeholder="عنوان" required><input id="p-price" placeholder="قیمت (تومان)" required></div>
+              <div class="row"><select id="p-category"><option>Minecraft</option><option>Discord</option><option>Telegram</option><option>VPN</option></select><input id="p-img" placeholder="آدرس تصویر (اختیاری)"></div>
+              <textarea id="p-desc" placeholder="توضیحات"></textarea>
+              <div style="display:flex;gap:8px"><button class="btn" type="submit">افزودن / بروزرسانی</button><button class="btn" type="button" id="export-data">خروجی JSON</button></div>
+            </form>
+            <div id="admin-products-list" class="hero-card" style="max-height:320px;overflow:auto"></div>
+          </div>
+
+          <div style="flex:1;min-width:320px">
+            <h3>خریداری‌شده‌ها</h3>
+            <div id="admin-purchases-list" class="hero-card" style="max-height:520px;overflow:auto"></div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <div class="footer-note">© 2025 RexShop</div>
+  </div>
+  <script src="script.js"></script>
+  <script>initAdmin();</script>
+</body>
+</html>

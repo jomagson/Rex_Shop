@@ -1,4 +1,4 @@
-// RexShop - script.js (prices in Toman)
+// RexShop - script.js (prices in Toman)  پردا
 // Default products (initial)
 const DEFAULT_PRODUCTS = [
   {id:'p1',title:'Minecraft Premium',price:120000,category:'Minecraft',desc:'اکانت پریمیوم جاوا ادیشن',img:''},
@@ -94,7 +94,7 @@ function buildCartTable(elemId){
   let html = '<table style="width:100%;border-collapse:collapse"><thead><tr><th>محصول</th><th>قیمت</th><th>تعداد</th><th>جمع</th></tr></thead><tbody>';
   let total = 0;
   cartDetails.forEach(r=>{ const pr = r.product; const sum = (pr.price * r.qty); total += sum; html += `<tr><td>${pr.title}</td><td>${formatToman(pr.price)}</td><td>${r.qty}</td><td>${formatToman(sum)}</td></tr>`; });
-  html += `</tbody></table><div style="margin-top:12px;font-weight:700">جمع کل: ${formatToman(total)}</div><div style="margin-top:12px"><button class="btn neon" id="checkout-open">پرداخت</button></div>`;
+  html += `</tbody></table><div style="margin-top:12px;font-weight:700">جمع کل: ${formatToman(total)}</div><div style="margin-top:12px"><button class="add" id="checkout-open">پرداخت</button></div>`;
   el.innerHTML = html;
   const btn = document.getElementById('checkout-open'); if(btn) btn.addEventListener('click', ()=>{ document.getElementById('checkout-form').scrollIntoView({behavior:'smooth'}); showToast('فرم پرداخت باز شد'); });
 }
@@ -158,7 +158,7 @@ function processCheckout(){
       // refresh UI
       buildCartTable('cart-contents');
       updateCartCount();
-      cardArea.innerHTML = '<p style="color:#9aa8c8">پرداخت ثبت شد. در پنل مدیریت، رسید نمایش داده خواهد شد.</p>';
+      cardArea.innerHTML = '<p style="color:#9aa8c8">پرداخت ثبت شد. به زودی خبر خرید شما به شماره تلفن شما پیامک خواهد شد.</p>';
       showToast('پرداخت ثبت شد');
     };
     reader.readAsDataURL(file);

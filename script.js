@@ -1,4 +1,3 @@
-
 // RexShop - script.js (prices in Toman)
 // Default products (initial)
 const DEFAULT_PRODUCTS = [
@@ -195,3 +194,49 @@ function initPage(){
 }
 
 document.addEventListener('DOMContentLoaded', ()=>{ try{ initPage() }catch(e){} });
+
+
+
+// 🔍 جست‌وجوی محصولات
+function searchProducts() {
+  const input = document.getElementById('searchInput');
+  if (!input) return;
+  const query = input.value.trim().toLowerCase();
+
+  // اگر کادر خالی بود، همه محصولات را نمایش بده
+  if (!query) {
+    renderProducts('products-grid', products);
+    return;
+  }
+
+  // فیلتر کردن محصولات بر اساس عنوان، دسته یا توضیحات
+  const filtered = products.filter(p =>
+    (p.title && p.title.toLowerCase().includes(query)) ||
+    (p.category && p.category.toLowerCase().includes(query)) ||
+    (p.desc && p.desc.toLowerCase().includes(query))
+  );
+
+  // نمایش نتایج
+  renderProducts('products-grid', filtered);
+
+  // اگر نتیجه‌ای نبود، پیام نمایان کن
+  if (filtered.length === 0) {
+    showToast('محصولی یافت نشد');
+  }
+}
+
+// فعال‌سازی دکمه و ورودی جست‌وجو
+function setupSearch() {
+  const btn = document.getElementById('searchBtn');
+  const input = document.getElementById('searchInput');
+  if (!btn || !input) return;
+  btn.addEventListener('click', searchProducts);
+  input.addEventListener('keyup', (e) => {
+    if (e.key === 'Enter') searchProducts();
+  });
+}
+
+// اجرای جست‌وجو بعد از لود کامل صفحه
+document.addEventListener('DOMContentLoaded', () => {
+  setupSearch();
+});
